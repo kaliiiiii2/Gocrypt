@@ -16,6 +16,7 @@ func isLower (s string) bool {
 func main () {
   var plainText string = "Hello World";
   var key int = 3;
+  var result string;
 
   for _, char := range plainText {
     var shifted int = int(char) + key
@@ -32,6 +33,8 @@ func main () {
         shifted -= 26
       }
     }
-    fmt.Printf("%s", string(shifted));
+    result += string(shifted);
   }
+  
+  fmt.Println (result);
 }
