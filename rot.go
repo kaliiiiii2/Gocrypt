@@ -39,6 +39,10 @@ func encrypt (plaintText string, key string) string{
         }
       } 
     } else if key == "rot18" {
+      var is_upper bool = isUpper(string(char));
+      var char  string = strings.ToLower(string(char));
+
+
   		if strings.Contains(rot18, string(char)) {
 				index := strings.Index(rot18, string(char))
 				result += string(rot18[(index+18)%36])
@@ -52,6 +56,6 @@ func encrypt (plaintText string, key string) string{
 
 func main () {
 
-  var result string = encrypt("Hw336 W693v", "rot18"); 
+  var result string = encrypt("Hello World", "rot18"); 
   fmt.Printf("\n Hello World %s", result)
 }
