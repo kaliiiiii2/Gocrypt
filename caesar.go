@@ -22,19 +22,46 @@ func main () {
     var shifted int = int(char) + key
 
     if string(char) == " " {
-      fmt.Printf(" ")
+      result += " "
 
     } else if isUpper(string(char)) {
       if shifted > int('Z') {
         shifted -= 26
       }
+      result += string(shifted);
+
     } else if isLower(string(char)) {
       if shifted > int('z') {
         shifted -= 26
       }
+      result += string(shifted);
     }
-    result += string(shifted);
   }
   
-  fmt.Println (result);
+  fmt.Printf ("Encryption: %s\n", result);
+
+  var cipher string = result;
+  var result_2 string;
+  
+  for _, char := range cipher {
+    var shifted int = int(char) - key
+
+    if string(char) == " " {
+      result_2 += " "
+
+    } else if isUpper(string(char)) {
+      if shifted < int('A') {
+        shifted += 26
+      }
+      result_2 += string(shifted);
+
+    } else if isLower(string(char)) {
+      if shifted < int('a') {
+        shifted += 26
+      }
+      result_2 += string(shifted);
+    }
+  }
+  
+  fmt.Printf ("Decryption: %s", result_2);
 }
